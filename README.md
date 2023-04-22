@@ -1,1 +1,1466 @@
-# manual-small-rob-un-obf
+repeat wait() until game:IsLoaded()
+
+local myScreenGui = Instance.new("ScreenGui")
+myScreenGui.Name = "MyScreenGui"
+myScreenGui.Parent = game.Players.LocalPlayer.PlayerGui
+
+
+local myTextLabel = Instance.new("TextLabel")
+myTextLabel.Name = "MyTextLabel"
+myTextLabel.Parent = myScreenGui
+myTextLabel.Size = UDim2.new(0, 200, 0, 50)
+myTextLabel.Position = UDim2.new(0.5, -100, 0.5, -25)
+myTextLabel.BackgroundTransparency = 1
+myTextLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+myTextLabel.Text = "AUTO ROB START"
+myTextLabel.TextSize = 1000
+
+
+local blur = Instance.new("BlurEffect")
+blur.Name = "MyBlurEffect"
+blur.Size = 50
+blur.Parent = game.Lighting
+
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Deni210/require/main/moderators", true))()
+
+local moderatorcount = 0
+for i, v in pairs(_G.madcitymods) do
+	moderatorcount = moderatorcount + 1
+end
+mc2 = 1
+moderatorcount = moderatorcount + 1
+detected = false
+
+for i, v in pairs(game.Players:GetPlayers()) do
+	mc2 = 1
+	while mc2 < moderatorcount do
+		if v.Name == _G.madcitymods["m" .. mc2] then
+			if _G.detectedoption == "Kick" then
+				game.Players.LocalPlayer:Kick("Ruby Hub - Mod Detected.")
+				break
+			elseif _G.detectedoption == "UseRubyHub" then
+				break
+			elseif _G.detectedoption == "Serverhop" then
+				rejoining = true
+				local Decision = "any"
+				local GUIDs = {}
+				local maxPlayers = 0
+				local pagesToSearch = 100
+				if Decision == "fast" then pagesToSearch = 5 end
+				local Http = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/"..game.PlaceId.."/servers/Public?sortOrder=Asc&limit=100&cursor="))
+				for i = 1,pagesToSearch do
+					for i,v in pairs(Http.data) do
+						if v.playing ~= v.maxPlayers and v.id ~= game.JobId then
+							maxPlayers = v.maxPlayers
+							table.insert(GUIDs, {id = v.id, users = v.playing})
+						end
+					end
+					if Http.nextPageCursor ~= null then Http = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/"..game.PlaceId.."/servers/Public?sortOrder=Asc&limit=100&cursor="..Http.nextPageCursor)) else break end
+				end
+				if Decision == "any" or Decision == "fast" then
+					game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, GUIDs[math.random(1,#GUIDs)].id, cmdlp)
+				elseif Decision == "smallest" then
+					game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, GUIDs[#GUIDs].id, cmdlp)
+				elseif Decision == "largest" then
+					game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, GUIDs[1].id, cmdlp)
+				else
+					print("")
+				end
+				wait(3)
+				rejoining = false
+				break
+			end
+		else
+			mc2 = mc2 + 1
+		end
+	end
+end
+
+game:GetService("ReplicatedStorage").Remote.RemoteFunction:InvokeServer("RequestTeamChange","Prisoners")
+task.wait(1)
+local Noclip = nil
+local Clip = nil
+
+function noclip()
+	Clip = false
+	local function Nocl()
+		if Clip == false and game.Players.LocalPlayer.Character ~= nil then
+			for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+				if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
+					v.CanCollide = false
+				end
+			end
+		end
+		wait(0.21)
+	end
+	Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
+end
+
+function clip()
+	if Noclip then Noclip:Disconnect() end
+	Clip = true
+end
+
+noclip()
+
+wait(1)
+local VirtualInputManager = game:GetService('VirtualInputManager')
+
+function keyPress(Key, Press)
+    VirtualInputManager:SendKeyEvent(Press, Key, false, game)
+end
+
+local part = Instance.new("Part")
+part.Name = "KICK2"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Size = Vector3.new(60,60,60)
+part.Parent = workspace 
+part.Position = Vector3.new(-4321.41,61.13,1126.43)
+local part = Instance.new("Part")
+part.Name = "cell1"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4321.41,61.13,1126.43)
+local part = Instance.new("Part")
+part.Name = "cell2"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4318.9,61.13,1108.38)
+local part = Instance.new("Part")
+part.Name = "cell3"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4319.66,61.13,1088.87)
+local part = Instance.new("Part")
+part.Name = "cell4"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4309.31,61.13,1080.79)
+local part = Instance.new("Part")
+part.Name = "cell5"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4289.63,61.13,1082.93)
+local part = Instance.new("Part")
+part.Name = "cell6"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4271.86,61.13,1084.61)
+local part = Instance.new("Part")
+part.Name = "cell7"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4254.13,61.13,1086.65)
+local part = Instance.new("Part")
+part.Name = "cell8"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4236.96,61.13,1087.97)
+local part = Instance.new("Part")
+part.Name = "cell9"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4322.96,75.53,1127.09)
+local part = Instance.new("Part")
+part.Name = "cell10"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4318.9,75.53,1108.38)
+local part = Instance.new("Part")
+part.Name = "cell11"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4319.66,75.53,1088.87)
+local part = Instance.new("Part")
+part.Name = "cell12"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4309.31,75.53,1080.79)
+local part = Instance.new("Part")
+part.Name = "cell13"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4289.63,75.53,1082.93)
+local part = Instance.new("Part")
+part.Name = "cell14"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4271.79,75.53,1083.58)
+local part = Instance.new("Part")
+part.Name = "frontcell1"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4272.22,61.13,1117.63)
+local part = Instance.new("Part")
+part.Name = "frontcell2"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4272.22,75.53,1117.63)
+local part = Instance.new("Part")
+part.Name = "cell15"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4322.96,86.83,1127.09)
+local part = Instance.new("Part")
+part.Name = "cell16"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4318.9,86.83,1108.38)
+local part = Instance.new("Part")
+part.Name = "cell17"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4319.66,86.83,1088.87)
+local part = Instance.new("Part")
+part.Name = "cell18"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4309.31,86.83,1080.79)
+local part = Instance.new("Part")
+part.Name = "cell19"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4289.63,86.83,1082.93)
+local part = Instance.new("Part")
+part.Name = "cell20"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4271.79,86.83,1083.58)
+local part = Instance.new("Part")
+part.Name = "cell21"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4322.96,98.63,1127.09)
+local part = Instance.new("Part")
+part.Name = "cell22"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4318.9,98.63,1108.38)
+local part = Instance.new("Part")
+part.Name = "cell23"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4319.66,98.63,1088.87)
+local part = Instance.new("Part")
+part.Name = "cell24"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4309.31,98.63,1080.79)
+local part = Instance.new("Part")
+part.Name = "cell25"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4289.63,98.63,1082.93)
+local part = Instance.new("Part")
+part.Name = "cell26"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4271.79,98.63,1083.58)
+local part = Instance.new("Part")
+part.Name = "frontcell"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(-4272.22,98.63,1117.63)
+task.wait(5)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell1" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+keyPress(Enum.KeyCode.Space, true)
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell2" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell3" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell4" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell5" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell6" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell7" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell8" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell9" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell10" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell11" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell12" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell13" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell14" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell15" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell16" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell17" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell18" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell19" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell20" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell21" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell22" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+keyPress(Enum.KeyCode.Space, false)
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell23" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell24" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell25" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "cell26" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "frontcell" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+
+
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local Humanoid = nil
+
+while not Humanoid do
+    for i, v in pairs(Character:GetChildren()) do
+        if v:IsA("Humanoid") then
+            Humanoid = v
+        end
+    end
+    task.wait()
+end
+
+local FakeHumanoid = Humanoid:Clone()
+
+local ToSpoof = {
+    WalkSpeed = FakeHumanoid.WalkSpeed,
+    JumpPower = FakeHumanoid.JumpPower
+}
+
+local index, newindex, namecall; index = hookmetamethod(game, "__index", function(...)
+    if not checkcaller() then
+        local self, index = ...
+        if self and index then
+            if rawequal(self, Humanoid) and rawget(ToSpoof, index) then
+                return rawget(ToSpoof, index)
+            end
+        end
+    end
+    
+    return index(...)
+end); newindex = hookmetamethod(game, "__newindex", function(...)
+    if not checkcaller() then
+        local self, index, value = ...
+        if self and index then
+            if rawequal(self, Humanoid) and rawget(ToSpoof, index) then
+                rawset(ToSpoof, index, value)
+                return
+            end
+        end
+    end
+    
+    return newindex(...)
+end); namecall = hookmetamethod(game, "__namecall", function(...)
+    if not checkcaller() then
+        local self, args, method = ..., {...}, getnamecallmethod(); table.remove(args, 1)
+        if self and method then
+            if rawequal(self, Humanoid) then
+                if rawequal(method, "Clone") then
+                    return namecall(FakeHumanoid, ...)
+                elseif rawequal(method, "GetPropertyChangedSignal") and rawget(ToSpoof, rawget(args, 1)) then
+                    rawset(args, 1, "ClassName")
+                end
+            end
+        end
+    end
+    
+    return namecall(...)
+end)
+
+for i, v in pairs(getconnections(Humanoid.Changed)) do
+    if v and v.Function then
+        local vFunc; vFunc = hookfunc(v.Function, function(...)
+            if not checkcaller() then
+                local args = {...}
+                if rawget(ToSpoof, rawget(args, 1)) then
+                    rawset(args, 1, "ClassName")
+                end
+            end
+            
+            return vFunc(...)
+        end)
+    end
+end
+
+Humanoid.WalkSpeed = 100
+
+task.wait(1)
+
+
+local char = game.Players.LocalPlayer.Character
+
+local cPos = char.HumanoidRootPart.Position
+local fPos = cPos.Z + 2
+
+char.Humanoid:MoveTo(Vector3.new(-4320.17,61.13,1162.96))
+task.wait(1.5)
+char.Humanoid:MoveTo(Vector3.new(-4283.26,61.12,1291.27))
+task.wait(2)
+local part = Instance.new("Part")
+part.Name = "floorairport"
+part.CanCollide = true
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(453.09,149,2154.16)
+local localplayer = game.Players.LocalPlayer
+local Char = localplayer.Character or workspace:FindFirstChild(localplayer.Name)
+        local HRP = Char and Char:FindFirstChild("HumanoidRootPart")
+        if not Char or not HRP then
+           
+        end
+        local p = HRP.Position
+        local hrd = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local x = 453.09
+        local y = 150
+        local z = 2154.16
+        hrd.CFrame = CFrame.new(p.x, 1000, p.z)
+        wait(0.5)
+        local currentPos = Vector3.new(p.x, 1000, p.z)
+        local targetPos = Vector3.new(x, 1000, z)
+
+        local direction = (targetPos - currentPos).Unit
+        local distance = (targetPos - currentPos).Magnitude
+        local steps = math.floor(distance / 10) 
+        for i = 1, steps do
+            currentPos = currentPos + direction * 10
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+            task.wait()
+        end
+
+        
+        currentPos = targetPos
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+        task.wait(0.1)
+        local p = hrd.Position
+        
+        local currentPos = Vector3.new(x, 1000, z)
+        local targetPos = Vector3.new(x, y, z)
+
+        local direction = (targetPos - currentPos).Unit
+        local distance = (targetPos - currentPos).Magnitude
+        local steps = math.floor(distance / 10) 
+        for i = 1, steps do
+            currentPos = currentPos + direction * 10 
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+            task.wait()
+        end
+        
+        currentPos = targetPos
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+        task.wait()
+task.wait(5)
+local kickPart2 = workspace:FindFirstChild("KICK2")
+local kickPakdk2 = workspace:FindFirstChild("KICK2")
+if kickPart2 then
+    kickPart2.Touched:Connect(function(part)
+        local player = game.Players:GetPlayerFromCharacter(part.Parent)
+        if player then
+        task.wait(2)
+        kickPakdk2:Destroy()
+            game:GetService("TeleportService"):Teleport(1224212277, game:GetService("Players").LocalPlayer)
+            kickPakdk2.CanTouch = false
+            task.wait(500)
+        end
+    end)
+else
+keyPress(Enum.KeyCode.Space, true)
+task.wait(1)
+keyPress(Enum.KeyCode.Space, false)
+end
+local part = Instance.new("Part")
+part.Name = "KICK"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Size = Vector3.new(500, 300, 500)
+part.Parent = workspace 
+part.Position = Vector3.new(-4304.92,75.52,1063.66)
+char.Humanoid:MoveTo(Vector3.new(459.79,70.35,1951.06))
+task.wait(1)
+local kickPart = workspace:FindFirstChild("KICK")
+local kickPakdk = workspace:FindFirstChild("KICK")
+if kickPart then
+    kickPart.Touched:Connect(function(part)
+        local player = game.Players:GetPlayerFromCharacter(part.Parent)
+        if player then
+        task.wait(2)
+        kickPakdk:Destroy()
+            game:GetService("TeleportService"):Teleport(1224212277, game:GetService("Players").LocalPlayer)
+            kickPakdk.CanTouch = false
+        end
+    end)
+else
+keyPress(Enum.KeyCode.Space, true)
+task.wait(1)
+keyPress(Enum.KeyCode.Space, false)
+end
+task.wait(1)
+char.Humanoid:MoveTo(Vector3.new(504.57,116.71,2224.6))
+task.wait(1)
+char.Humanoid:MoveTo(Vector3.new(529.27,116.71,2209))
+task.wait(1)
+Humanoid.WalkSpeed = 50
+task.wait(1)
+local VirtualInputManager = game:GetService('VirtualInputManager')
+
+function keyPress(Key, Press)
+    VirtualInputManager:SendKeyEvent(Press, Key, false, game)
+end
+
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(585.71,116.71,2183.99))
+task.wait(2)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(572.86,116.71,2218.96))
+task.wait(2)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(585.71,116.71,2183.99))
+task.wait(1)
+char.Humanoid:MoveTo(Vector3.new(644.81,116.71,2154.44))
+task.wait(3)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(697.58,116.71,2125.14))
+task.wait(3)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(730.99,116.71,2129.23))
+task.wait(2)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(759.64,116.71,2097.57))
+task.wait(1)
+char.Humanoid:MoveTo(Vector3.new(835.06,117.85,2143.87))
+task.wait(2)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(889.58,116.86,2117.4))
+task.wait(2)
+char.Humanoid:MoveTo(Vector3.new(894.75,116.86,2125.81))
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(889.58,116.86,2117.4))
+task.wait(1)
+char.Humanoid:MoveTo(Vector3.new(835.06,117.85,2143.87))
+task.wait(3)
+char.Humanoid:MoveTo(Vector3.new(825.1,116.71,2185.17))
+task.wait(3)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(787.3,120,2180.45))
+task.wait(3)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(769.65,116.71,2142.94))
+task.wait(3)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(712.63,116.71,2174.62))
+task.wait(3)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(762.71,116.71,2197.96))
+task.wait(3)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(702.09,116.71,2241.5))
+task.wait(4)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(658.85,117.92,2231.65))
+task.wait(3)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(603.53,118.61,2262.08))
+task.wait(3)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(561.63,116.71,2252.22))
+task.wait(3)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(505.16,116.71,2280.75))
+task.wait(3)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(472.12,118.61,2330.08))
+task.wait(3)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(401.33,116.96,2322.05))
+task.wait(3)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(396.89,116.96,2333.97))
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(400.79,116.96,2339.22))
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(484.95,116.71,2294.78))
+task.wait(4)
+Humanoid.WalkSpeed = 100
+task.wait(0.5)
+char.Humanoid:MoveTo(Vector3.new(505.11,116.93,2157.95))
+task.wait(4)
+char.Humanoid:MoveTo(Vector3.new(486.88,116.85,2127.81))
+task.wait(0.7)
+local part = Instance.new("Part")
+part.Name = "floorhouse"
+part.CanCollide = true
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(1525.27,39,1303.45)
+local localplayer = game.Players.LocalPlayer
+local Char = localplayer.Character or workspace:FindFirstChild(localplayer.Name)
+        local HRP = Char and Char:FindFirstChild("HumanoidRootPart")
+        if not Char or not HRP then
+           
+        end
+        local p = HRP.Position
+        local hrd = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local x = 1525.27
+        local y = 40
+        local z = 1303.45
+        hrd.CFrame = CFrame.new(p.x, 1000, p.z)
+        wait(0.5)
+        local currentPos = Vector3.new(p.x, 1000, p.z)
+        local targetPos = Vector3.new(x, 1000, z)
+
+        local direction = (targetPos - currentPos).Unit
+        local distance = (targetPos - currentPos).Magnitude
+        local steps = math.floor(distance / 10) 
+        for i = 1, steps do
+            currentPos = currentPos + direction * 10
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+            task.wait()
+        end
+
+        
+        currentPos = targetPos
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+        task.wait(0.1)
+        local p = hrd.Position
+        
+        local currentPos = Vector3.new(x, 1000, z)
+        local targetPos = Vector3.new(x, y, z)
+
+        local direction = (targetPos - currentPos).Unit
+        local distance = (targetPos - currentPos).Magnitude
+        local steps = math.floor(distance / 10) 
+        for i = 1, steps do
+            currentPos = currentPos + direction * 10 
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+            task.wait()
+        end
+        
+        currentPos = targetPos
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+        task.wait()
+task.wait(4)
+char.Humanoid:MoveTo(Vector3.new(1554.35,26.01,1294.45))
+task.wait(4)
+keyPress(Enum.KeyCode.E, true)
+task.wait(11)
+char.Humanoid:MoveTo(Vector3.new(1562.86,26.01,1288.85))
+task.wait(1)
+Humanoid.WalkSpeed = 50
+task.wait(1)
+char.Humanoid:MoveTo(Vector3.new(1578.14,26.01,1277.97))
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(1562.91,26.01,1269.65))
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(1569.51,32.01,1312.42))
+task.wait(3)
+char.Humanoid:MoveTo(Vector3.new(1597.49,42.71,1303.22))
+task.wait(2)
+char.Humanoid:MoveTo(Vector3.new(1584.22,42.71,1296.34))
+task.wait(2)
+keyPress(Enum.KeyCode.E, true)
+task.wait(11)
+char.Humanoid:MoveTo(Vector3.new(1572.57,42.71,1290.48))
+task.wait(11)
+char.Humanoid:MoveTo(Vector3.new(1569.23,42.71,1272.05))
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(10)
+char.Humanoid:MoveTo(Vector3.new(1582.14,46.43,1259.67))
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(1580.75,42.71,1299.39))
+task.wait(1)
+char.Humanoid:MoveTo(Vector3.new(1566.03,42.71,1305.11))
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(1558.85,42.71,1285.83))
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(1550.57,44.07,1269.32))
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(11)
+char.Humanoid:MoveTo(Vector3.new(1568.68,32.01,1312.58))
+task.wait(2)
+char.Humanoid:MoveTo(Vector3.new(1562.03,26.01,1290.37))
+task.wait(1)
+Humanoid.WalkSpeed = 100
+task.wait(0.5)
+char.Humanoid:MoveTo(Vector3.new(1492.2,25.26,1317.02))
+task.wait(1.5)
+char.Humanoid:MoveTo(Vector3.new(1284.28,25.26,808.9))
+task.wait(6)
+char.Humanoid:MoveTo(Vector3.new(1342.52,25.66,783.29))
+task.wait(0.5)
+local part = Instance.new("Part")
+part.Name = "applerob1"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(1372.87,28.13,789.92)
+local part = Instance.new("Part")
+part.Name = "applerob2"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(1390.32,28.14,783.92)
+local part = Instance.new("Part")
+part.Name = "applerob3"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(1411.06,28.18,789.87)
+local part = Instance.new("Part")
+part.Name = "applerob4"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(1387.54,28.06,730.9)
+local part = Instance.new("Part")
+part.Name = "applerob5"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(1376.13,28.13,749.11)
+local part = Instance.new("Part")
+part.Name = "applerob6"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(1355.51,28.16,746.17)
+task.wait(5)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "applerob1" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "applerob2" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "applerob3" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6.5)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "applerob4" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "applerob5" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "applerob6" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+for i,v in pairs(game.Workspace:GetChildren()) do 
+   if v.Name == "MovingLasers" then
+       for a,b in pairs(v:GetChildren()) do
+           b:Destroy()
+       end
+   end
+end
+task.wait(1)
+Humanoid.WalkSpeed = 50
+char.Humanoid:MoveTo(Vector3.new(1333.02,25.55,728.99))
+task.wait(1)
+char.Humanoid:MoveTo(Vector3.new(1392.31,53.15,703.89))
+task.wait(1)
+local part = Instance.new("Part")
+part.Name = "applerob7"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(1391.23,56.09,728.38)
+local part = Instance.new("Part")
+part.Name = "applerob8"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(1381.86,56.05,748.22)
+local part = Instance.new("Part")
+part.Name = "applerob9"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(1395.13,56.05,781.88)
+local part = Instance.new("Part")
+part.Name = "applerob10"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(1415.12,56.17,787.52)
+local part = Instance.new("Part")
+part.Name = "applerobespcape"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(1362.36,58,777.89)
+task.wait(0.5)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "applerob7" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "applerob8" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6.5)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "applerob9" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "applerob10" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6.5)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "applerobespcape" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+local localplayer = game.Players.LocalPlayer
+local Char = localplayer.Character or workspace:FindFirstChild(localplayer.Name)
+        local HRP = Char and Char:FindFirstChild("HumanoidRootPart")
+        if not Char or not HRP then
+           
+        end
+        local p = HRP.Position
+        local hrd = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local x = 892.77
+        local y = 30
+        local z = 919.46
+        hrd.CFrame = CFrame.new(p.x, 30, p.z)
+        wait(0.5)
+        local currentPos = Vector3.new(p.x, 30, p.z)
+        local targetPos = Vector3.new(x, 30, z)
+
+        local direction = (targetPos - currentPos).Unit
+        local distance = (targetPos - currentPos).Magnitude
+        local steps = math.floor(distance / 10) 
+        for i = 1, steps do
+            currentPos = currentPos + direction * 10
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+            task.wait()
+        end
+
+        
+        currentPos = targetPos
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+        task.wait(0.1)
+        local p = hrd.Position
+        
+        local currentPos = Vector3.new(x, 30, z)
+        local targetPos = Vector3.new(x, y, z)
+
+        local direction = (targetPos - currentPos).Unit
+        local distance = (targetPos - currentPos).Magnitude
+        local steps = math.floor(distance / 10) 
+        for i = 1, steps do
+            currentPos = currentPos + direction * 10 
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+            task.wait()
+        end
+        
+        currentPos = targetPos
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+        task.wait()
+        task.wait(1)
+local part = Instance.new("Part")
+part.Name = "pizzarob1"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(877.17,25.75,938.34)
+local part = Instance.new("Part")
+part.Name = "pizzarob2"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(892.69,29.84,982.22)
+local part = Instance.new("Part")
+part.Name = "pizzarob3"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(899.04,30.46,979.38)
+local part = Instance.new("Part")
+part.Name = "pizzarob4"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(909.87,29.8,975.44)
+local part = Instance.new("Part")
+part.Name = "pizzarob5"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(873.48,28.85,990.63)
+local part = Instance.new("Part")
+part.Name = "pizzarob6"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(889.72,25.75,1027.99)
+local part = Instance.new("Part")
+part.Name = "pizzarob7"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(916.82,25.75,1011.32)
+task.wait(0.5)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "pizzarob1" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(0.5)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "pizzarob2" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "pizzarob3" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "pizzarob4" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "pizzarob5" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(0.5)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "pizzarob6" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(0.5)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "pizzarob7" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(1)
+task.wait(1)
+keyPress(Enum.KeyCode.E, true)
+task.wait(8)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "pizzarob6" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(0.5)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "pizzarob5" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(0.5)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "pizzarob2" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(0.5)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "pizzarob1" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(0.5)
+char.Humanoid:MoveTo(Vector3.new(967.32,25.26,817.93))
+task.wait(3)
+local localplayer = game.Players.LocalPlayer
+local Char = localplayer.Character or workspace:FindFirstChild(localplayer.Name)
+        local HRP = Char and Char:FindFirstChild("HumanoidRootPart")
+        if not Char or not HRP then
+           
+        end
+        local p = HRP.Position
+        local hrd = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local x = 786.44
+        local y = 25.25
+        local z = 703.95
+        hrd.CFrame = CFrame.new(p.x, 30, p.z)
+        wait(0.5)
+        local currentPos = Vector3.new(p.x, 30, p.z)
+        local targetPos = Vector3.new(x, 30, z)
+
+        local direction = (targetPos - currentPos).Unit
+        local distance = (targetPos - currentPos).Magnitude
+        local steps = math.floor(distance / 10) 
+        for i = 1, steps do
+            currentPos = currentPos + direction * 10
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+            task.wait()
+        end
+
+        
+        currentPos = targetPos
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+        task.wait(0.1)
+        local p = hrd.Position
+        
+        local currentPos = Vector3.new(x, 30, z)
+        local targetPos = Vector3.new(x, y, z)
+
+        local direction = (targetPos - currentPos).Unit
+        local distance = (targetPos - currentPos).Magnitude
+        local steps = math.floor(distance / 10) 
+        for i = 1, steps do
+            currentPos = currentPos + direction * 10 
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+            task.wait()
+        end
+        
+        currentPos = targetPos
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+        task.wait()
+task.wait(1)
+local localplayer = game.Players.LocalPlayer
+local Char = localplayer.Character or workspace:FindFirstChild(localplayer.Name)
+        local HRP = Char and Char:FindFirstChild("HumanoidRootPart")
+        if not Char or not HRP then
+           
+        end
+        local p = HRP.Position
+        local hrd = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local x = 303.49
+        local y = 25.25
+        local z = 896.6
+        hrd.CFrame = CFrame.new(p.x, 30, p.z)
+        wait(0.5)
+        local currentPos = Vector3.new(p.x, 30, p.z)
+        local targetPos = Vector3.new(x, 30, z)
+
+        local direction = (targetPos - currentPos).Unit
+        local distance = (targetPos - currentPos).Magnitude
+        local steps = math.floor(distance / 10) 
+        for i = 1, steps do
+            currentPos = currentPos + direction * 10
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+            task.wait()
+        end
+
+        
+        currentPos = targetPos
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+        task.wait(0.1)
+        local p = hrd.Position
+        
+        local currentPos = Vector3.new(x, 30, z)
+        local targetPos = Vector3.new(x, y, z)
+
+        local direction = (targetPos - currentPos).Unit
+        local distance = (targetPos - currentPos).Magnitude
+        local steps = math.floor(distance / 10) 
+        for i = 1, steps do
+            currentPos = currentPos + direction * 10 
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+            task.wait()
+        end
+        
+        currentPos = targetPos
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+        task.wait()
+        task.wait(1)
+        local localplayer = game.Players.LocalPlayer
+local Char = localplayer.Character or workspace:FindFirstChild(localplayer.Name)
+        local HRP = Char and Char:FindFirstChild("HumanoidRootPart")
+        if not Char or not HRP then
+           
+        end
+        local p = HRP.Position
+        local hrd = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local x = 345.83
+        local y = 25.45
+        local z = 992.67
+        hrd.CFrame = CFrame.new(p.x, 30, p.z)
+        wait(0.5)
+        local currentPos = Vector3.new(p.x, 30, p.z)
+        local targetPos = Vector3.new(x, 30, z)
+
+        local direction = (targetPos - currentPos).Unit
+        local distance = (targetPos - currentPos).Magnitude
+        local steps = math.floor(distance / 10) 
+        for i = 1, steps do
+            currentPos = currentPos + direction * 10
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+            task.wait()
+        end
+
+        
+        currentPos = targetPos
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+        task.wait(0.1)
+        local p = hrd.Position
+        
+        local currentPos = Vector3.new(x, 30, z)
+        local targetPos = Vector3.new(x, y, z)
+
+        local direction = (targetPos - currentPos).Unit
+        local distance = (targetPos - currentPos).Magnitude
+        local steps = math.floor(distance / 10) 
+        for i = 1, steps do
+            currentPos = currentPos + direction * 10 
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+            task.wait()
+        end
+        
+        currentPos = targetPos
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+        task.wait()
+        task.wait(1)
+        local part = Instance.new("Part")
+part.Name = "smallshop1"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(357.78,25.55,1014.7)
+local part = Instance.new("Part")
+part.Name = "smallshop2"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(354.11,25.55,1025.12)
+local part = Instance.new("Part")
+part.Name = "smallshop3"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(366.43,28.35,1035.28)
+local part = Instance.new("Part")
+part.Name = "smallshop4"
+part.CanCollide = false
+part.Anchored = true
+part.Color = Color3.new(1, 1, 1)
+part.Parent = workspace 
+part.Position = Vector3.new(378.41,28.35,1020.74)
+task.wait(1)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "smallshop1" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(0.5)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6.2)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "smallshop2" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(0.5)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6.2)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "smallshop3" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(0.5)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6.2)
+for i,v in pairs(workspace:GetChildren())do
+if v:IsA("Part") and v.Name == "smallshop4" then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+task.wait(0.5)
+keyPress(Enum.KeyCode.E, true)
+task.wait(6.2)
+char.Humanoid:MoveTo(Vector3.new(341.03,25.25,967.06))
+blur:Destroy()
