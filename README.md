@@ -18,7 +18,7 @@ myTextLabel.TextSize = 1000
 
 local blur = Instance.new("BlurEffect")
 blur.Name = "MyBlurEffect"
-blur.Size = 50
+blur.Size = 100000000000
 blur.Parent = game.Lighting
 
 
