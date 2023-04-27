@@ -1,27 +1,3 @@
-repeat wait() until game:IsLoaded()
-
-local myScreenGui = Instance.new("ScreenGui")
-myScreenGui.Name = "MyScreenGui"
-myScreenGui.Parent = game.Players.LocalPlayer.PlayerGui
-
-
-local myTextLabel = Instance.new("TextLabel")
-myTextLabel.Name = "MyTextLabel"
-myTextLabel.Parent = myScreenGui
-myTextLabel.Size = UDim2.new(0, 200, 0, 50)
-myTextLabel.Position = UDim2.new(0.5, -100, 0.5, -25)
-myTextLabel.BackgroundTransparency = 1
-myTextLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
-myTextLabel.Text = "AUTO ROB START"
-myTextLabel.TextSize = 1000
-
-
-local blur = Instance.new("BlurEffect")
-blur.Name = "MyBlurEffect"
-blur.Size = 100000000000
-blur.Parent = game.Lighting
-
-
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Deni210/require/main/moderators", true))()
 
 local moderatorcount = 0
@@ -77,7 +53,6 @@ for i, v in pairs(game.Players:GetPlayers()) do
 	end
 end
 
-game:GetService("ReplicatedStorage").Remote.RemoteFunction:InvokeServer("RequestTeamChange","Prisoners")
 task.wait(1)
 local Noclip = nil
 local Clip = nil
@@ -105,388 +80,7 @@ end
 noclip()
 
 wait(1)
-local VirtualInputManager = game:GetService('VirtualInputManager')
 
-function keyPress(Key, Press)
-    VirtualInputManager:SendKeyEvent(Press, Key, false, game)
-end
-
-local part = Instance.new("Part")
-part.Name = "KICK2"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Size = Vector3.new(60,60,60)
-part.Parent = workspace 
-part.Position = Vector3.new(-4321.41,61.13,1126.43)
-local part = Instance.new("Part")
-part.Name = "cell1"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4321.41,61.13,1126.43)
-local part = Instance.new("Part")
-part.Name = "cell2"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4318.9,61.13,1108.38)
-local part = Instance.new("Part")
-part.Name = "cell3"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4319.66,61.13,1088.87)
-local part = Instance.new("Part")
-part.Name = "cell4"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4309.31,61.13,1080.79)
-local part = Instance.new("Part")
-part.Name = "cell5"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4289.63,61.13,1082.93)
-local part = Instance.new("Part")
-part.Name = "cell6"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4271.86,61.13,1084.61)
-local part = Instance.new("Part")
-part.Name = "cell7"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4254.13,61.13,1086.65)
-local part = Instance.new("Part")
-part.Name = "cell8"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4236.96,61.13,1087.97)
-local part = Instance.new("Part")
-part.Name = "cell9"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4322.96,75.53,1127.09)
-local part = Instance.new("Part")
-part.Name = "cell10"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4318.9,75.53,1108.38)
-local part = Instance.new("Part")
-part.Name = "cell11"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4319.66,75.53,1088.87)
-local part = Instance.new("Part")
-part.Name = "cell12"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4309.31,75.53,1080.79)
-local part = Instance.new("Part")
-part.Name = "cell13"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4289.63,75.53,1082.93)
-local part = Instance.new("Part")
-part.Name = "cell14"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4271.79,75.53,1083.58)
-local part = Instance.new("Part")
-part.Name = "frontcell1"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4272.22,61.13,1117.63)
-local part = Instance.new("Part")
-part.Name = "frontcell2"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4272.22,75.53,1117.63)
-local part = Instance.new("Part")
-part.Name = "cell15"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4322.96,86.83,1127.09)
-local part = Instance.new("Part")
-part.Name = "cell16"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4318.9,86.83,1108.38)
-local part = Instance.new("Part")
-part.Name = "cell17"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4319.66,86.83,1088.87)
-local part = Instance.new("Part")
-part.Name = "cell18"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4309.31,86.83,1080.79)
-local part = Instance.new("Part")
-part.Name = "cell19"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4289.63,86.83,1082.93)
-local part = Instance.new("Part")
-part.Name = "cell20"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4271.79,86.83,1083.58)
-local part = Instance.new("Part")
-part.Name = "cell21"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4322.96,98.63,1127.09)
-local part = Instance.new("Part")
-part.Name = "cell22"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4318.9,98.63,1108.38)
-local part = Instance.new("Part")
-part.Name = "cell23"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4319.66,98.63,1088.87)
-local part = Instance.new("Part")
-part.Name = "cell24"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4309.31,98.63,1080.79)
-local part = Instance.new("Part")
-part.Name = "cell25"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4289.63,98.63,1082.93)
-local part = Instance.new("Part")
-part.Name = "cell26"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4271.79,98.63,1083.58)
-local part = Instance.new("Part")
-part.Name = "frontcell"
-part.CanCollide = false
-part.Anchored = true
-part.Color = Color3.new(1, 1, 1)
-part.Parent = workspace 
-part.Position = Vector3.new(-4272.22,98.63,1117.63)
-task.wait(5)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell1" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-keyPress(Enum.KeyCode.Space, true)
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell2" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell3" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell4" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell5" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell6" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell7" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell8" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell9" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell10" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell11" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell12" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell13" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell14" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell15" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell16" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell17" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell18" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell19" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell20" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell21" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell22" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-keyPress(Enum.KeyCode.Space, false)
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell23" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell24" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell25" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "cell26" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
-for i,v in pairs(workspace:GetChildren())do
-if v:IsA("Part") and v.Name == "frontcell" then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-task.wait(1)
 
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -566,7 +160,6 @@ end
 
 Humanoid.WalkSpeed = 100
 
-task.wait(1)
 
 
 local char = game.Players.LocalPlayer.Character
@@ -574,10 +167,6 @@ local char = game.Players.LocalPlayer.Character
 local cPos = char.HumanoidRootPart.Position
 local fPos = cPos.Z + 2
 
-char.Humanoid:MoveTo(Vector3.new(-4320.17,61.13,1162.96))
-task.wait(1.5)
-char.Humanoid:MoveTo(Vector3.new(-4283.26,61.12,1291.27))
-task.wait(2)
 local part = Instance.new("Part")
 part.Name = "floorairport"
 part.CanCollide = true
@@ -632,24 +221,6 @@ local Char = localplayer.Character or workspace:FindFirstChild(localplayer.Name)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
         task.wait()
 task.wait(5)
-local kickPart2 = workspace:FindFirstChild("KICK2")
-local kickPakdk2 = workspace:FindFirstChild("KICK2")
-if kickPart2 then
-    kickPart2.Touched:Connect(function(part)
-        local player = game.Players:GetPlayerFromCharacter(part.Parent)
-        if player then
-        task.wait(2)
-        kickPakdk2:Destroy()
-            game:GetService("TeleportService"):Teleport(1224212277, game:GetService("Players").LocalPlayer)
-            kickPakdk2.CanTouch = false
-            task.wait(500)
-        end
-    end)
-else
-keyPress(Enum.KeyCode.Space, true)
-task.wait(1)
-keyPress(Enum.KeyCode.Space, false)
-end
 local part = Instance.new("Part")
 part.Name = "KICK"
 part.CanCollide = false
@@ -660,23 +231,6 @@ part.Parent = workspace
 part.Position = Vector3.new(-4304.92,75.52,1063.66)
 char.Humanoid:MoveTo(Vector3.new(459.79,70.35,1951.06))
 task.wait(1)
-local kickPart = workspace:FindFirstChild("KICK")
-local kickPakdk = workspace:FindFirstChild("KICK")
-if kickPart then
-    kickPart.Touched:Connect(function(part)
-        local player = game.Players:GetPlayerFromCharacter(part.Parent)
-        if player then
-        task.wait(2)
-        kickPakdk:Destroy()
-            game:GetService("TeleportService"):Teleport(1224212277, game:GetService("Players").LocalPlayer)
-            kickPakdk.CanTouch = false
-        end
-    end)
-else
-keyPress(Enum.KeyCode.Space, true)
-task.wait(1)
-keyPress(Enum.KeyCode.Space, false)
-end
 task.wait(1)
 char.Humanoid:MoveTo(Vector3.new(504.57,116.71,2224.6))
 task.wait(1)
@@ -873,7 +427,7 @@ task.wait(2)
 keyPress(Enum.KeyCode.E, true)
 task.wait(11)
 char.Humanoid:MoveTo(Vector3.new(1572.57,42.71,1290.48))
-task.wait(11)
+task.wait(1)
 char.Humanoid:MoveTo(Vector3.new(1569.23,42.71,1272.05))
 task.wait(1)
 keyPress(Enum.KeyCode.E, true)
@@ -881,7 +435,7 @@ task.wait(10)
 char.Humanoid:MoveTo(Vector3.new(1582.14,46.43,1259.67))
 task.wait(1)
 keyPress(Enum.KeyCode.E, true)
-task.wait(6)
+task.wait(10)
 char.Humanoid:MoveTo(Vector3.new(1580.75,42.71,1299.39))
 task.wait(1)
 char.Humanoid:MoveTo(Vector3.new(1566.03,42.71,1305.11))
@@ -891,7 +445,7 @@ task.wait(6)
 char.Humanoid:MoveTo(Vector3.new(1558.85,42.71,1285.83))
 task.wait(1)
 keyPress(Enum.KeyCode.E, true)
-task.wait(6)
+task.wait(7)
 char.Humanoid:MoveTo(Vector3.new(1550.57,44.07,1269.32))
 task.wait(1)
 keyPress(Enum.KeyCode.E, true)
@@ -1463,4 +1017,5 @@ task.wait(0.5)
 keyPress(Enum.KeyCode.E, true)
 task.wait(6.2)
 char.Humanoid:MoveTo(Vector3.new(341.03,25.25,967.06))
-blur:Destroy()
+task.wait(1)
+game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
